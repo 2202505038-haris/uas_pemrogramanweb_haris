@@ -27,7 +27,19 @@
         </div>
     @enderror
 </div>
-
+<div class="mb-3">
+    <label class="form-label">Link Foto Alat (Ambil dari Google)</label>
+    <input type="text" 
+           name="foto" 
+           class="form-control @error('foto') is-invalid @enderror" 
+           placeholder="Contoh: https://alamat-gambar.com/foto.jpg"
+           value="{{ old('foto', $alat->foto ?? '') }}">
+    @error('foto')
+        <div class="invalid-feedback">
+            {{ $message }}
+        </div>
+    @enderror
+</div>
 <div class="mb-3">
     <label class="form-label">Merek</label>
 
@@ -42,7 +54,14 @@
         </div>
     @enderror
 </div>
-
+<div class="mb-3">
+    <label class="form-label">Status Kondisi Alat</label>
+    <select name="status" class="form-select">
+        <option value="Siap Pakai" {{ old('status', $alat->status ?? '') == 'Siap Pakai' ? 'selected' : '' }}>Siap Pakai</option>
+        <option value="Sedang Rusak" {{ old('status', $alat->status ?? '') == 'Sedang Rusak' ? 'selected' : '' }}>Sedang Rusak</option>
+        <option value="Dalam Kalibrasi" {{ old('status', $alat->status ?? '') == 'Dalam Kalibrasi' ? 'selected' : '' }}>Dalam Kalibrasi</option>
+    </select>
+</div>
 <div class="mb-3">
     <label class="form-label">Lokasi</label>
 

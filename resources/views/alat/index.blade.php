@@ -21,11 +21,14 @@
         <a href="{{ route('alat.pdf') }}" class="btn btn-danger btn-sm" target="_blank">
             Cetak PDF
         </a>
-        <a href="{{ route('alat.create') }}" class="btn btn-primary btn-sm">
-            Tambah Alat
-        </a>
-    </div>
-</div>
+       <tr>
+    <th>No</th>
+    <th>Nama Alat</th>
+    <th>Foto</th> <th>Tahun</th>
+    <th>Merek</th>
+    <th>Lokasi</th>
+    <th>Aksi</th>
+</tr>
 </div>
     <div class="card-body">
         @if(session('success'))
@@ -51,6 +54,13 @@
                     <td>{{ $item->tahun }}</td>
                     <td>{{ $item->merek }}</td>
                     <td>{{ $item->lokasi }}</td>
+                    <td>
+    @if($item->foto)
+        <img src="{{ $item->foto }}" alt="Foto Alat" style="width: 65px; height: 65px; object-fit: cover; border-radius: 8px; border: 1px solid #ddd;">
+    @else
+        <img src="https://placehold.co/65x65?text=No+Image" alt="No Image" style="border-radius: 8px;">
+    @endif
+</td>
                     <td>
                         <form action="{{ route('alat.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Yakin hapus?')">
                             <a href="{{ route('alat.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>

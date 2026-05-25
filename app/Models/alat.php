@@ -13,5 +13,7 @@ class Alat extends Model
         'tahun',
         'merek',
         'lokasi',
+        'foto',
+        'status',
     ];
 }
