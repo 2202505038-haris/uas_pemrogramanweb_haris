@@ -1,6 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    /* CSS untuk memberikan latar belakang bertema medis */
+    .medis-bg-table {
+        background-image: url('https://img.freepik.com/free-vector/clean-medical-background_53876-116875.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    
+    /* Membuat baris tabel sedikit transparan agar gambar di belakangnya terlihat samar-samar */
+    .medis-bg-table table tbody tr {
+        background-color: rgba(255, 255, 255, 0.85) !important;
+    }
+</style>
 <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
     <span>Data Alat</span>
 
@@ -29,7 +44,7 @@
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <div class="table-responsive">
+   <div class="table-responsive medis-bg-table">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
