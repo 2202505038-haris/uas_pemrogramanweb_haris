@@ -1,10 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
+<div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
     <span>Data Alat</span>
-    <div>
+    
+    <div class="d-flex align-items-center gap-2">
+        <form action="{{ route('alat.index') }}" method="GET" class="d-flex gap-2">
+            <input type="text" 
+                   name="search" 
+                   value="{{ request('search') }}" 
+                   class="form-control form-control-sm" 
+                   placeholder="Cari alat atau lokasi..." 
+                   style="width: 200px;">
+            <button type="submit" class="btn btn-secondary btn-sm">Cari</button>
+            @if(request('search'))
+                <a href="{{ route('alat.index') }}" class="btn btn-light btn-sm">Reset</a>
+            @endif
+        </form>
+
         <a href="{{ route('alat.pdf') }}" class="btn btn-danger btn-sm" target="_blank">
             Cetak PDF
         </a>
@@ -12,6 +25,7 @@
             Tambah Alat
         </a>
     </div>
+</div>
 </div>
     <div class="card-body">
         @if(session('success'))

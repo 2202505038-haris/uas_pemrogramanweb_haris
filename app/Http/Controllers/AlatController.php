@@ -8,11 +8,27 @@ use Barryvdh\DomPDF\Facade\Pdf; // Tambahkan ini di sini
 
 class AlatController extends Controller
 {
-    public function index()
-    {
-        $alat = Alat::latest()->paginate(10);
-        return view('alat.index', compact('alat'));
+    public function index(Request $request)
+{
+    // 1. Ambil keyword dari input name="search"
+    $keyword = $request->get('search');
+    
+    // 2. Buat query dasar menggunakan model Alat
+    $query = Alat::query();
+
+    // 3. Jika input pencarian tidak kosong, lakukan penyaringan data
+    if (!empty($keyword)) {
+        $query->where('nama_alat', 'LIKE', "%{$keyword}%")
+              ->orWhere('merek', 'LIKE', "%{$keyword}%")
+              ->orWhere('lokasi', 'LIKE', "%{$keyword}%");
     }
+
+    // 4. Urutkan dari yang terbaru dan batasi 10 data per halaman
+    $alat = $query->latest()->paginate(10);
+
+    // 5. Kembalikan ke halaman view utama dengan membawa data yang sudah disaring
+    return view('alat.index', compact('alat'));
+}
 
     public function cetakPDF()
     {
