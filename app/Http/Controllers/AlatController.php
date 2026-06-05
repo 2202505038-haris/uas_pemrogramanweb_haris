@@ -56,8 +56,8 @@ class AlatController extends Controller
             'nama_alat' => 'required', // sesuaikan field database kamu
         ]);
 
-        // Simpan ke database (otomatis memasukkan semua input termasuk foto & status)
-        Alat::create($request->all());
+      // Mengambil semua input form KECUALI 'foto' dan 'status'
+Alat::create($request->except(['foto', 'status']));
 
         // Redirect ke halaman utama
         return redirect()->route('alat.index')->with('success', 'Data alat berhasil ditambahkan');
@@ -65,13 +65,15 @@ class AlatController extends Controller
 
     public function update(Request $request, Alat $alat)
     {
+        // 1. Validasi input wajib
         $request->validate([
-            'nama_alat' => 'required', // sesuaikan field database kamu
+            'nama_alat' => 'required',
         ]);
 
-        // Update ke database (otomatis memperbarui semua input termasuk foto & status)
-        $alat->update($request->all());
+        // 2. Simpan perubahan ke database (abaikan input 'foto')
+        $alat->update($request->except('foto'));
 
+        // 3. Kembalikan ke halaman utama dengan pesan sukses
         return redirect()->route('alat.index')->with('success', 'Data alat berhasil diperbarui');
     }
 

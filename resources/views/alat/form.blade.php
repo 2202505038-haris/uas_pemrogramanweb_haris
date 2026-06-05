@@ -59,7 +59,7 @@
     <select name="status" class="form-select">
         <option value="Siap Pakai" {{ old('status', $alat->status ?? '') == 'Siap Pakai' ? 'selected' : '' }}>Siap Pakai</option>
         <option value="Sedang Rusak" {{ old('status', $alat->status ?? '') == 'Sedang Rusak' ? 'selected' : '' }}>Sedang Rusak</option>
-        <option value="Dalam Kalibrasi" {{ old('status', $alat->status ?? '') == 'Dalam Kalibrasi' ? 'selected' : '' }}>Dalam Kalibrasi</option>
+        <option value="Dalam Kalibrasi" {{ old('status', $alat->status ?? '') == 'Siap Pakai' ? 'selected' : '' }}>Dalam Kalibrasi</option>
     </select>
 </div>
 <div class="mb-3">

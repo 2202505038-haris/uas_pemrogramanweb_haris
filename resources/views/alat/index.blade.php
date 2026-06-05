@@ -78,7 +78,7 @@
                         @elseif($item->status == 'Sedang Rusak')
                             <span class="badge bg-danger">Sedang Rusak</span>
                         @else
-                            <span class="badge bg-warning text-dark">Dalam Kalibrasi</span>
+                            <span class="badge bg-warning text-dark">Siap Pakai</span>
                         @endif
                     </td>
                     <td>

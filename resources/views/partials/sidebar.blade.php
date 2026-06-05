@@ -3,8 +3,8 @@
     <a class="brand-mark" href="{{ url('/') }}" aria-label="adminHMD dashboard">
       <span class="brand-icon"><i class="bi bi-grid-1x2-fill" aria-hidden="true"></i></span>
       <span class="brand-copy">
-        <span class="brand-title">Haris Gunawan</span>
-        <span class="brand-subtitle">Elektromedis_UMPKU</span>
+        <span class="brand-title">HARIS GUNAWAN</span>
+        <span class="brand-subtitle">RPL_ELEKTROMEDIS_UMPKU</span>
       </span>
     </a>
   </div>

@@ -9,11 +9,9 @@ class Alat extends Model
     protected $table = 'alat';
 
     protected $fillable = [
-        'nama_alat',
-        'tahun',
-        'merek',
-        'lokasi',
-        'foto',
-        'status',
-    ];
+    'nama_alat',
+    'tahun',
+    'merek',
+    'lokasi',
+];
 }
